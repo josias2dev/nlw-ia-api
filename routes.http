@@ -14,4 +14,26 @@ Content-Type: audio/mpeg
 ./example.mp3	
 ------WebKitFormBoundary7MA4YWxkTrZu0gW--
 
+###
+
+# @name create-transcription
+POST http://localhost:3333/videos/8dcec8a5-3f61-495a-b0a8-b16959ba8753/transcription
+Content-Type: application/json
+
+{
+    "prompt": "paz, reggae"
+}
+
+###
+
+# @name generate-ai-completion
+POST http://localhost:3333/ai/complete
+Content-Type: application/json
+
+{
+    "videoId": "8dcec8a5-3f61-495a-b0a8-b16959ba8753",
+    "temperature":0.5,
+    "template": "Gere um resumo sucinto da transcrição do vídeo informado a seguir: '{transcription}'"
+}
+
 
